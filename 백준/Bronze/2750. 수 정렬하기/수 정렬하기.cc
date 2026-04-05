@@ -3,7 +3,7 @@
 using namespace std;
 
 void selection_sort(int arr[], int n);
-//void intersection_sort(int arr[], int n);
+void intersection_sort(int arr[], int n);
 void bubble_sort(int arr[], int n);
 void swap(int &a, int &b);
 int main(void)
@@ -17,7 +17,8 @@ int main(void)
     }
 
     //selection_sort(arr,n);
-    bubble_sort(arr,n);
+    //bubble_sort(arr,n);
+    intersection_sort(arr,n);
     for (int i=0;i<n;i++) {
         cout<<arr[i]<<endl;
     }
@@ -59,5 +60,18 @@ void bubble_sort(int arr[], int n) {
             }
         }
         if (!swapped) break;
+    }
+}
+
+void intersection_sort(int arr[], int n) {
+    for (int i=1;i < n; i++) {
+        int key = arr[i];
+        int j=i;
+        for (; j>0 && arr[j-1] > key; j--) {
+            arr[j] = arr[j-1];
+        }
+        arr[j] = key;
+
+
     }
 }
